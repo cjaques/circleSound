@@ -1,0 +1,6 @@
+dist_max=200
+dist_min=14
+note_max=120
+note_min=40
+bins_number = 5
+instrument = 7
