@@ -33,7 +33,7 @@ There is a text file called **config.txt** that you may modify, to run different
 
 ## Ackowledgment
 
-* The project originated from the ***FabLab in Neuchatel***
+* The project originated from the [***FabLab*** in Neuchatel](http://fablab-neuch.ch/)
 * This project was inspired by A.Grove's project [Ultrasonic Pi Piano](http://theotherandygrove.com/projects/ultrasonic-pi-piano/).
 * A big shout out to the creators and maintainers of FluidSynth
 
@@ -41,4 +41,4 @@ There is a text file called **config.txt** that you may modify, to run different
 
 You are free to use and modify the code here, just know that : 
 * It comes as is and there's NO WARRANTY
-* FluidSynth is licensed under the LG-license
+* FluidSynth is licensed under the LGPL
