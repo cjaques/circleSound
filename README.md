@@ -2,14 +2,14 @@
 This repo holds code that has been originally developped for the event ***Les Digitales***, La Chaux-de-Fonds, August 20th 2017.
 The idea is to play sounds from a Raspberry Pi based on a distance it measures with an ultrasound distance probe.
 
-All the code is python based, relying on [FluidSynth](www.fluidsynth.org) to generate and play sounds.
+All the code is python based, relying on [FluidSynth](https://www.fluidsynth.org) to generate and play sounds.
 
 More instructions on the assembly to come...
 
 ## Dependencies
 You need to install FluidSynth on the raspberry, and install the Python wrappers.
 ```
-sudo apt-get install fluidsynth alsa
+sudo apt-get install python-pip fluidsynth alsa
 pip install fluidsynth
 ```
 
