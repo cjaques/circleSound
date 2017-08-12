@@ -10,7 +10,7 @@ More instructions on the assembly to come...
 The [ultrasound probe](https://www.sparkfun.com/products/13959) was wired as explained on [this webpage](https://www.modmypi.com/blog/hc-sr04-ultrasonic-range-sensor-on-the-raspberry-pi), using two resistors as a dividing bridge to measure the output voltage.
 
 ## Dependencies
-You need to install FluidSynth on the raspberry, and install the Python wrappers.
+You need to install FluidSynth on the raspberry, and install the Python wrappers. 
 ```
 sudo apt-get install python-pip fluidsynth alsa
 pip install fluidsynth
