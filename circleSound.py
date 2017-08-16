@@ -11,9 +11,14 @@
 import RPi.GPIO as GPIO
 import fluidsynth
 import time
+import atexit
+from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_StepperMotor
+import threading
 
 # globals
 global note_max, note_min, dist_max, dist_min, bins, instrument
+global motor_thread
+motor_thread = threading.Thread()
 note_max = 117
 note_min = 0
 dist_max = 140 # cm
@@ -57,6 +62,20 @@ def init_config():
 	    count += 1
     print 'final count : ', count
 
+
+def init_motor():
+    '''' Inits the stepper, through adafruit HAT shield'''
+    mh = Adafruit_MotorHAT(addr=0x60)
+    motor = mh.getStepper(200,1)
+    set_speed(mot, 60) # rpm
+
+    return motor
+
+def set_speed(stepper, speed):
+    stepper.setSpeed(speed)
+
+def stepper_worker(stepper, numsteps, direction, style):
+    stepper.step(numsteps, direction, style)
 
 def init_GPIO():
     ''' Sets measure GPIOS and others if needed'''
@@ -145,6 +164,7 @@ if __name__ == "__main__":
     init_config()
     note = 0
     global instrument
+    global motor_thread
     counter = 0
     d = 0 # first measure 
 
@@ -154,6 +174,12 @@ if __name__ == "__main__":
     # init GPIO and ultraprobe
     init_GPIO()
     setup_probe()
+
+    # start motor
+    motor = init_motor()
+    if not motor_thread.isAlive():
+        motor_thread = threading.Thread(target=stepper_worker, args=(motor, 100, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.DOUBLE))
+        motor_thread.start()
 
     try:
         # IDLE LOOP 
