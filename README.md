@@ -39,6 +39,4 @@ There is a text file called **config.txt** that you may modify, to run different
 
 ## License
 
-You are free to use and modify the code here, just know that : 
-* It comes as is and there's NO WARRANTY
-* FluidSynth is licensed under the LGPL
+LGPL Licensed, see license file.
